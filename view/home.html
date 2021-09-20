@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <nav id="main-nav">
+        <div id="main-nav-logo">
+            <img src="/img/logo.png" alt="logo" class="logo-s">
+        </div>
+        <div id="main-nav-links">
+            <a href="/" class="main-nav-link"><h3>Home</h3></a>
+            <a href="/writepost" class="main-nav-link"><h3>Write</h3></a>
+            <a href="/profile" class="main-nav-link"><h3>Profile</h3></a>
+            <a href="/api/v1/auth/logout" class="main-nav-link"><h3>Logout</h3></a>
+        </div>
+    </nav>
+    <div id="feed"></div>
+</body>
+<script>
+    let feed = document.getElementById('feed');
+    fetch('/api/v1/blog/getall')
+    .then(result => result.json())
+    .then(data => {
+        console.log(data)
+        let views = data.blogs.map(a => {
+            return `
+                <div class="post-block box">
+                    <h3 class="post-block-title">${a.title}</h3>
+                    <p class="post-block-description">${a.description}</p>
+                    <h5 class="post-block-author">${a.author.username}</h5>
+                    <a href="/readPost/${a._id}">View Post>>></a>
+                </div>
+            `
+        })
+        feed.innerHTML = views.join('')
+    })
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/main.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-body box">
+            <a href="/" class="flex-align-center"><img class="logo-m" src="/img/logo.png" alt="logo"></a>
+            <h2 class="form-h2">Sign in!</h2>
+            <form action="/api/v1/auth/login" method="post">
+
+                <label for="username"><h4>Username</h4></label>
+                <input type="username" name="username" id="username" placeholder="eg: John_6">
+
+                <label for="password"><h4>Password</h4></label>
+                <input type="password" name="password" id="password" placeholder="Password">
+
+                <div class="form-bottom-col">
+                    <a href="/register">Register</a>
+                    <button type="submit"><h3>Sign in!</h3></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

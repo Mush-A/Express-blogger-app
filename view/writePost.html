@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Write Post</title>
+</head>
+<body>
+    <nav id="main-nav">
+        <div id="main-nav-logo">
+            <img src="/img/logo.png" alt="logo" class="logo-s">
+        </div>
+        <div id="main-nav-links">
+            <a href="/" class="main-nav-link"><h3>Home</h3></a>
+            <a href="/writepost" class="main-nav-link"><h3>Write</h3></a>
+            <a href="/profile" class="main-nav-link"><h3>Profile</h3></a>
+            <a href="/api/v1/auth/logout" class="main-nav-link"><h3>Logout</h3></a>
+        </div>
+    </nav>
+
+    <div class="big-form-wrapper">
+        <div class="form-body big-form box">
+            <form action="/api/v1/blog/post" method="post">
+                <label for="title"><h3>Title:</h3></label>
+                <input name="title" id='title' type="text" placeholder="How to make cake">
+                <label for="description"><h3>Description:</h3></label>
+                <input name="description" id="description" type="text" placeholder="Learn how to make delicious vanilla cake from scratch!">
+                <label for="write-area"><h3>Body:</h3></label>
+                <textarea name="body" id="write-area" cols="30" rows="14" placeholder="The first thing you need is..."></textarea>
+
+                <div class="form-bottom-col">
+                    <a href="/">Cancel</a>
+                    <button id="post-button" type="submit"><h3>Post</h3></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

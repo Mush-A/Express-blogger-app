@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/main.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-body box">
+            <a href="/" class="flex-align-center"><img class="logo-m" src="/img/logo.png" alt="logo"></a>
+            <h2 class="form-h2">Wecome!</h2>
+            <form action="/api/v1/auth/register" method="post">
+                
+                <label for="firstname"><h4>First name</h4></label>
+                <input type="text" name="firstname" id="firstname" placeholder="eg: John">
+
+                <label for="lastname"><h4>Last name</h4></label>
+                <input type="text" name="lastname" id="lastname" placeholder="eg: Doe">
+
+                <label for="email"><h4>Email</h4></label>
+                <input type="email" name="email" id="email" placeholder="eg: johndoe@gmail.com">
+
+                <label for="username"><h4>Username</h4></label>
+                <input type="username" name="username" id="username" placeholder="eg: John_6">
+
+                <label for="password"><h4>Password</h4></label>
+                <input type="password" name="password" id="password" placeholder="Password">
+
+                <label for="bio"><h4>About yourself (500 characters)</h4></label>
+                <textarea name="bio" id="bio" cols="30" rows="6" maxlength="500" placeholder="Write something..."></textarea>
+
+                <div class="form-bottom-col">
+                    <a href="/login">Sign in</a>
+                    <button type="submit"><h3>Resgister!</h3></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

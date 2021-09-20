@@ -1,0 +1,56 @@
+#write-area {
+    height: 90%;
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+
+#post-button{
+    align-self: flex-end;
+    margin: 2rem 0 0 0;
+    padding: 0.5rem;
+}
+
+#write-post-body form{
+    display: flex;
+    flex-direction: column;
+}
+
+#write-post-body form input, label, textarea, button{
+    margin: 0 2rem 1rem 2rem;
+    padding: 0.5rem;
+}
+
+#write-post-body form label{
+    align-self: flex-start;
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: bolder;
+    color: #3d3d3d
+}
+
+
+#write-post-body form input{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: 1px gray solid;
+}
+
+#write-post-body form textarea{
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+
+#post-body-read{
+    display: block;
+    word-break: break-all;
+}

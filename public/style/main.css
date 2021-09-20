@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: whitesmoke;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+h1, h2 {
+    margin: 1rem 0;
+}
+
+.flex-align-center{
+    align-self: center;
+}
+
+button{
+    border: none;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px gray solid;
+    user-select: none;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+/********************************************************** FORM **********************************************************/
+.logo-m{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 500px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.form-h2{
+    align-self: center;
+}
+
+.box{
+    border-radius: 5px;
+    user-select: none;
+
+    margin: 2rem;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: whitesmoke;
+}
+
+.form-body{
+    display: flex;
+    flex-flow: column;
+    min-width: 20rem;
+    background-color: white;
+}
+
+.form-body form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-body form input, label, textarea{
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+}
+
+.form-body form label{
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    font-weight: bolder;
+    color: #3d3d3d
+}
+
+.form-body form input{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: 1px gray solid;
+}
+
+.form-body form textarea{
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+
+.form-bottom-col{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* *** big form *** */
+.big-form{
+    width: 100%;
+}
+
+.big-form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+/********************************************************** FORM **********************************************************/
+
+/********************************************************** NAV **********************************************************/
+.logo-s{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 500px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color: white;
+}
+
+#main-nav > * {
+    margin: 0.2rem 2rem;
+}
+
+#main-nav-links h3{
+    display: inline-block
+}
+
+.main-nav-link {
+    margin: 0 0.5rem;
+    color: black;
+}
+
+/********************************************************** NAV **********************************************************/
+
+/********************************************************** FORM MQ**********************************************************/
+@media screen and (max-width: 600px) {
+    .form-body{
+        width: 100%;
+    }
+
+    .box{
+        margin: 0;
+        box-shadow: none;
+    }
+}
+/********************************************************** FORM MQ**********************************************************/

@@ -1,0 +1,63 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.box-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-width: 50%;
+    background: white;
+    border-radius: 5px;
+    border: 1px gray solid;
+    z-index: 10;
+    user-select: none;
+
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.link-box{
+    width: 100%;
+    margin: 5rem 0;
+}
+
+.link-box a{
+    text-decoration: none;
+    color: black;
+}
+
+.link-box button {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0.5rem;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
