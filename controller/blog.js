@@ -21,7 +21,7 @@ const postBlog = (req, res) => {
 const getAll = (req, res) => {
     Blog
     .find({})
-    .populate('author', '-id -hash -salt -email')
+    .populate('author', '-_id -hash -salt -email')
     .then(blogs => blogs ? res.status(200).json({blogs}) : res.status(404).json({ msg: 'No blogs found'}))
     .catch(err => res.status(500).json({ msg: err }))
 }
@@ -29,13 +29,31 @@ const getAll = (req, res) => {
 const getOne = (req, res) => {
     Blog
     .find({_id: req.params.id})
-    .populate('author', '-id -hash -salt -email')
-    .then(blogs => blogs ? res.status(200).json({blogs}) : res.status(404).json({ msg: 'No blogs found'}))
+    .populate('author', '-hash -salt -email')
+    .then(blogs => {
+        let ownerStatus = false;
+        if (blogs) {
+            console.log(blogs)
+            if (blogs[0].author._id.equals(req.user._id)) {
+                ownerStatus = true;
+            }
+            res.status(200).json({
+                blogs: {
+                    title: blogs[0].title,
+                    description: blogs[0].description,
+                    author: {username: blogs[0].author.username},
+                    body: blogs[0].body
+                }, 
+                ownerStatus
+            })
+        } else {
+            res.status(404).json({msg: 'No blogs found'})
+        }
+    })
     .catch(err => res.status(500).json({ msg: err }))
 }
 
 const deleteOne = (req, res) => {
-    console.log(req.body.id)
     Blog
     .findOneAndDelete({_id: req.params.id})
     .then(result => res.status(200).json(result))

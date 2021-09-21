@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const Blog = require('../models/Blog');
+
 module.exports.isAuth = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
@@ -12,4 +15,32 @@ module.exports.isLoggedin = (req, res, next) => {
     } else {
         next();
     }
+}
+
+// module.exports.isOwnerStatus = (req, res, next) => {
+//     Blog
+//     .find({author: req.user})
+//     .then(result => {
+//         if(result.find(a => a._id.equals(mongoose.Types.ObjectId(req.params.id)))) {
+//             res.additional.isOwnerStatus = true;
+//             next();
+//         } else {
+//             res.additional.isOwnerStatus = false;
+//             next();
+//         }
+//     })
+//     .catch(err => res.send(err))
+// }
+
+module.exports.isOwner = (req, res, next) => {
+    Blog
+    .find({author: req.user})
+    .then(result => {
+        if(result.find(a => a._id.equals(mongoose.Types.ObjectId(req.params.id)))) {
+            next();
+        } else {
+            return res.status(200).json({msg: 'You are not the author of this post, begone!'});
+        }
+    })
+    .catch(err => res.send(err))
 }

@@ -15,7 +15,7 @@ router.route('/getone/:id')
 .get(blog.getOne)
 
 router.route('/deleteone/:id')
-.all(authMiddlware.isAuth)
+.all(authMiddlware.isAuth, authMiddlware.isOwner)
 .delete(blog.deleteOne)
 
 module.exports = router;
