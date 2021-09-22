@@ -6,10 +6,12 @@ fetch('/api/v1/blog/getall')
     let views = data.blogs.map(a => {
         return `
             <div class="post-block box">
-                <h3 class="post-block-title">${a.title}</h3>
+                <div>
+                    <h2 class="post-block-title">${a.title}</h2>
+                    <h5 class="post-block-author">By ${a.author.username}</h5>
+                </div>
                 <p class="post-block-description">${a.description}</p>
-                <h5 class="post-block-author">${a.author.username}</h5>
-                <a href="/readPost/${a._id}">View Post>>></a>
+                <a href="/readPost/${a._id}"><button id="edit-button" type="submit"><h3>View post</h3></button></a>
             </div>
         `
     })

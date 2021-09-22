@@ -12,8 +12,7 @@ fetch(`/api/v1/blog/getone/${postID}`)
         post.innerHTML = `
             <div class="box">
                 <h1>${a.title}</h1>
-                <p>${a.description}</p>
-                <h5>${a.author.username}</h5>
+                <h5>By ${a.author.username}</h5>
                 <p>${a.body}</p>
                 <div class="form-bottom-col">
                     <a href="/">Home</a>
