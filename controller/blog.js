@@ -33,7 +33,6 @@ const getOne = (req, res) => {
     .then(blogs => {
         let ownerStatus = false;
         if (blogs) {
-            console.log(blogs)
             if (blogs[0].author._id.equals(req.user._id)) {
                 ownerStatus = true;
             }
