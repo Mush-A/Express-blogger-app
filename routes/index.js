@@ -38,4 +38,13 @@ router.route('/readpost/:id')
     }
 })
 
+router.route('/updatepost/:id')
+.get((req, res) => {
+    if (req.isAuthenticated()) {
+        return res.sendFile(path.resolve(__dirname, '../view/updatePost.html'));;
+    } else {
+        return res.sendFile(path.resolve(__dirname, '../view/index.html'));
+    }
+})
+
 module.exports = router;
