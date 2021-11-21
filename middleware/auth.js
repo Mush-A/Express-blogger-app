@@ -19,21 +19,6 @@ module.exports.isLoggedin = (req, res, next) => {
   }
 };
 
-// module.exports.isOwnerStatus = (req, res, next) => {
-//     Blog
-//     .find({author: req.user})
-//     .then(result => {
-//         if(result.find(a => a._id.equals(mongoose.Types.ObjectId(req.params.id)))) {
-//             res.additional.isOwnerStatus = true;
-//             next();
-//         } else {
-//             res.additional.isOwnerStatus = false;
-//             next();
-//         }
-//     })
-//     .catch(err => res.send(err))
-// }
-
 module.exports.isOwner = (req, res, next) => {
   Blog.find({ author: req.user })
     .then((result) => {
