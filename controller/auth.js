@@ -1,5 +1,4 @@
 const passport = require("passport");
-const MongoStore = require("connect-mongo");
 const User = require("../models/User");
 
 const login = (req, res, next) => {

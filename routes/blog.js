@@ -4,9 +4,9 @@ const blog = require("../controller/blog");
 
 router.route("/post").all(authMiddlware.isAuth).post(blog.postBlog);
 
-router.route("/getall").all(authMiddlware.isAuth).get(blog.getAll);
+router.route("/getall").get(blog.getAll);
 
-router.route("/getone/:id").all(authMiddlware.isAuth).get(blog.getOne);
+router.route("/getone/:id").get(blog.getOne);
 
 router
   .route("/deleteone/:id")
