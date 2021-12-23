@@ -15,7 +15,9 @@ const login = (req, res, next) => {
         return next(err);
       }
       //   req.session.user = req.user;
-      return res.redirect("/");
+      return res
+        .status(200)
+        .json({ success: true, user, msg: "login success" });
     });
   })(req, res, next);
 };
