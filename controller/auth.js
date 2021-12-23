@@ -33,20 +33,13 @@ const logout = (req, res, next) => {
 };
 
 const register = (req, res, next) => {
-  let newUser = new User({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    username: req.body.username,
-    bio: req.body.bio,
-    image: req.body.image,
-  });
+  const { firstname, lastname, email, username, bio, image } = req.body;
 
-  newUser.setPassword(req.body.password);
-
-  newUser.save();
-
-  res.redirect("/login");
+  let newUser = new User({ firstname, lastname, email, username, bio, image })
+    .setPassword(req.body.password)
+    .save()
+    .then(() => res.redirect("/login"))
+    .catch((err) => res.status(500).json({ msg: err }));
 };
 
 module.exports = {

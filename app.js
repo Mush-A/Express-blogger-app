@@ -10,8 +10,8 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
-const auth = require("./routes/auth");
 const pages = require("./routes/index");
+const auth = require("./routes/auth");
 const blog = require("./routes/blog");
 
 app.use(express.urlencoded({ extended: "false" }));
@@ -34,8 +34,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/v1/auth", auth);
 app.use("/", pages);
+app.use("/api/v1/auth", auth);
 app.use("/api/v1/blog", blog);
 
 const start = async () => {
