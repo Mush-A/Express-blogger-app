@@ -27,6 +27,8 @@ const post = async (data) => {
     .then((data) => {
       msg.innerHTML = "";
       if (data.success) {
+        msg.innerHTML = "Successful login";
+        setTimeout(() => (window.location.href = `/`), 100);
       } else {
         for (const param in data.errors) {
           let message = data.errors[param].msg;
