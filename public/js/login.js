@@ -1,15 +1,13 @@
 let loginForm = document.getElementById("login-form");
 let msg = document.getElementById("msg");
+let alertPlaceholder = document.getElementById("liveAlertPlaceholder");
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let username = document.getElementById("username");
-  let password = document.getElementById("password");
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-  const data = {
-    username: username.value,
-    password: password.value,
-  };
+  const data = { username, password };
 
   post(data);
 });
@@ -25,17 +23,23 @@ const post = async (data) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      msg.innerHTML = "";
+      alertPlaceholder.innerHTML = "";
+
       if (data.success) {
-        msg.innerHTML = "Successful login";
+        alert("Successful login", "success");
         setTimeout(() => (window.location.href = `/`), 100);
       } else {
         for (const param in data.errors) {
           let message = data.errors[param].msg;
-          let err = document.createElement("div");
-          err.innerHTML = message;
-          msg.appendChild(err);
+          alert(message, "warning");
         }
       }
     });
 };
+
+function alert(message, type) {
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML = `<div class="alert p-1 alert-${type}" role="alert">${message}</div>`;
+
+  alertPlaceholder.append(wrapper);
+}
