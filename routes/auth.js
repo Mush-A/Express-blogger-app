@@ -25,4 +25,6 @@ router
 
 router.route("/logout").get(auth.logout);
 
+router.route("/isLoggedIn").get(auth.isLoggedIn);
+
 module.exports = router;

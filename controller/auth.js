@@ -44,8 +44,17 @@ const register = (req, res, next) => {
     .catch((err) => res.status(500).json({ msg: err }));
 };
 
+const isLoggedIn = (req, res) => {
+  if (req.isAuthenticated()) {
+    res.status(200).json({ isLoggedIn: true });
+  } else {
+    res.status(200).json({ isLoggedIn: false });
+  }
+};
+
 module.exports = {
   login,
   logout,
   register,
+  isLoggedIn,
 };
