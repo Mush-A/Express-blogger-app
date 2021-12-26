@@ -1,20 +1,23 @@
-let feed = document.getElementById('feed');
+let feed = document.getElementById("feed");
 
-fetch('/api/v1/blog/getall')
-.then(result => result.json())
-.then(data => {
-    let views = data.blogs.map(a => {
-        return `
-            <div class="post-block box">
-                <div>
-                    <h2 class="post-block-title">${a.title}</h2>
-                    <h5 class="post-block-author">By ${a.author.username}</h5>
+fetch("/api/v1/blog/getall")
+  .then((result) => result.json())
+  .then((data) => {
+    let views = data.blogs.map((a) => {
+      console.log(a);
+      return `
+            <div class="card m-4 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title">${a.title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">By ${a.author.username}</h6>
+                    <p class="card-text text-truncate-4" style="color: #282829;">${a.body}</p>
+                    <div class="d-flex justify-content-end">
+                        <a href="/readPost/${a._id}"><button class="btn btn-outline-dark"><h5>Read</h5></button></a>
+                    </div>
                 </div>
-                <p class="post-block-description">${a.description}</p>
-                <a href="/readPost/${a._id}"><button id="edit-button" type="submit"><h3>View post</h3></button></a>
             </div>
-        `
-    })
-    feed.innerHTML = views.join('')
-})
-.catch(err => console.log(err));
+        `;
+    });
+    feed.innerHTML = views.join("");
+  })
+  .catch((err) => console.log(err));
