@@ -6,7 +6,7 @@ fetch("/api/v1/blog/getall")
     let views = data.blogs.map((a) => {
       console.log(a);
       return `
-            <div class="card m-4 shadow-sm border-0">
+            <div class="card my-4 shadow-sm border-0">
                 <div class="card-body">
                     <h5 class="card-title">${a.title}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">By ${a.author.username}</h6>
