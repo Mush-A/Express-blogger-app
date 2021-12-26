@@ -1,9 +1,16 @@
+import { marked } from "https://cdn.skypack.dev/marked";
+
 let url = window.location.pathname.split("/");
 let postID = url[2];
 let title = document.getElementById("title");
 let description = document.getElementById("description");
 let body = document.getElementById("write-area");
 let blogForm = document.getElementById("blog-form");
+let preview = document.getElementById("preview");
+
+body.addEventListener("input", () => {
+  preview.innerHTML = marked.parse(body.value);
+});
 
 fetch(`/api/v1/blog/getone/${postID}`)
   .then((result) => result.json())
@@ -36,6 +43,6 @@ const post = async (data) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      setTimeout(() => (window.location.href = `/readPost/${data._id}`), 500);
+      window.location.href = `/readPost/${data._id}`;
     });
 };

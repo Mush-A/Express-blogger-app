@@ -1,3 +1,5 @@
+import { marked } from "https://cdn.skypack.dev/marked";
+
 let url = window.location.pathname.split("/");
 let postID = url[2];
 let post = document.getElementById("post");
@@ -12,8 +14,12 @@ fetch(`/api/v1/blog/getone/${postID}`)
             <div class="card my-4 shadow-sm border-0">
                 <div class="card-body">
                     <h1 class="card-title">${a.title}</h1>
-                    <h6 class="card-subtitle mb-2 text-muted">By ${a.author.username}</h6>
-                    <p class="card-text" style="color: #282829;">${a.body}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">By 
+                      ${a.author.username}
+                    </h6>
+                    <div class="card-text overflow-hidden" style="color: #282829;">
+                      ${marked.parse(a.body)}
+                    </div>
                     <div class="d-flex justify-content-end">
                         <button id="edit-button" type="submit" class="btn btn-outline-dark mx-1"><h5>Edit</h5></button>
                         <button id="delete-button" type="submit" class="btn btn-outline-dark mx-1"><h5>Delete</h5></button>
@@ -23,11 +29,16 @@ fetch(`/api/v1/blog/getone/${postID}`)
         `;
     } else {
       post.innerHTML = `
-            <div class="box">
-                <h1>${a.title}</h1>
-                <p>${a.description}</p>
-                <h5>${a.author.username}</h5>
-                <p>${a.body}</p>
+            <div class="card my-4 shadow-sm border-0">
+                <div class="card-body">
+                    <h1 class="card-title">${a.title}</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">By 
+                      ${a.author.username}
+                    </h6>
+                    <div class="card-text overflow-hidden" style="color: #282829;">
+                      ${marked.parse(a.body)}
+                    </div>
+                </div>
             </div>
         `;
     }

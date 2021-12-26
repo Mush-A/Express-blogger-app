@@ -1,4 +1,13 @@
+import { marked } from "https://cdn.skypack.dev/marked";
+
 let blogForm = document.getElementById("blog-form");
+
+let body = document.getElementById("write-area");
+let preview = document.getElementById("preview");
+
+body.addEventListener("input", () => {
+  preview.innerHTML = marked.parse(body.value);
+});
 
 blogForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -26,9 +35,6 @@ const post = async (data) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      setTimeout(
-        () => (window.location.href = `/readPost/${data.newPost._id}`),
-        1000
-      );
+      window.location.href = `/readPost/${data.newPost._id}`;
     });
 };
