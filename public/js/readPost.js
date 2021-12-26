@@ -9,15 +9,14 @@ fetch(`/api/v1/blog/getone/${postID}`)
 
     if (data.ownerStatus) {
       post.innerHTML = `
-            <div class="box">
-                <h1>${a.title}</h1>
-                <h5>By ${a.author.username}</h5>
-                <p>${a.body}</p>
-                <div class="form-bottom-col">
-                    <a href="/">Home</a>
-                    <div>
-                        <button id="edit-button" type="submit"><h3>Edit</h3></button>
-                        <button id="delete-button" type="submit"><h3>Delete</h3></button>
+            <div class="card my-4 shadow-sm border-0">
+                <div class="card-body">
+                    <h1 class="card-title">${a.title}</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">By ${a.author.username}</h6>
+                    <p class="card-text" style="color: #282829;">${a.body}</p>
+                    <div class="d-flex justify-content-end">
+                        <button id="edit-button" type="submit" class="btn btn-outline-dark mx-1"><h5>Edit</h5></button>
+                        <button id="delete-button" type="submit" class="btn btn-outline-dark mx-1"><h5>Delete</h5></button>
                     </div>
                 </div>
             </div>

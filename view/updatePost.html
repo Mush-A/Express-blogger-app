@@ -13,21 +13,38 @@
 <body>
     <div id="navbar-wrapper"></div>
 
-    <div class="big-form-wrapper">
-        <div class="form-body big-form box">
-            <form id="blog-form">
-                <label for="title"><h3>Title:</h3></label>
-                <input name="title" id='title' type="text" placeholder="How to make cake">
-                <label for="description"><h3>Description:</h3></label>
-                <input name="description" id="description" type="text" placeholder="Learn how to make delicious vanilla cake from scratch!">
-                <label for="write-area"><h3>Body:</h3></label>
-                <textarea name="body" id="write-area" cols="30" rows="14" placeholder="The first thing you need is..."></textarea>
-
-                <div class="form-bottom-col">
-                    <a href="/">Cancel</a>
-                    <button id="post-button" type="submit"><h3>Update</h3></button>
-                </div>
-            </form>
+    <div id="write-form" class="container-fluid">
+        <div class="card my-4 shadow-sm border-0">
+            <div class="card-body">
+                <form id="blog-form">
+                    <div class="mb-3">
+                        <label for="title" class="form-label p-0">
+                            <h2>Topic:</h2>
+                        </label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="eg How to build a cake">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label p-0">
+                            <h2>Description:</h2>
+                        </label>
+                        <input type="text" class="form-control" id="description" name="description"
+                            placeholder="eg Bake cake using farts">
+                    </div>
+                    <div class="mb-3">
+                        <label for="body" class="form-label p-0">
+                            <h2>Body:</h2>
+                        </label>
+                        <textarea name="body" class="form-control" id="write-area" cols="30" rows="14"
+                            placeholder="eg The first thing you need is..."></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button id="post-button" type="submit" class="btn btn-outline-dark mx-1">
+                            <h5>Update</h5>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
